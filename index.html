@@ -15,8 +15,6 @@
 
     <section class="fondo">
             <img src="overlays.jpg" class="overlays"/>
-            <img src="overlays.jpg" class="overlays"/>
-            <img src="overlays.jpg" class="overlays"/>
         <div class="content">
             <h1>Te Amo  :') ♥ <br/>pequeña</h1>
             <img src="usImg2.jpg" class="photoBg">
@@ -77,9 +75,10 @@
                     element.setAttribute('src',nameImg[contadorIndex])
                 })
                 vid.setAttribute('src',nameVid[contadorIndex])
+                icon.className ="ri-pause-circle-line" ;
+
   
             }
-            icon.className = 'ri-play-circle-line'
             if(vid.paused){
                 vid.play()
             }
