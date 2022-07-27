@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <title>Ojitos Preciosos</title>
+</head>
+<body>
+    <div class="load">
+      <div class="iconLoad">♥</div>
+    </div>
+
+    <section class="fondo">
+            <img src="overlays.jpg" class="overlays"/>
+            <img src="overlays.jpg" class="overlays"/>
+            <img src="overlays.jpg" class="overlays"/>
+        <div class="content">
+            <h1>Te Amo  :') ♥ <br/>pequeña</h1>
+            <img src="usImg2.jpg" class="photoBg">
+            <div class="card">
+               <video   poster="poster1.jpg" class="video_parke" preload="metadata" src="./parke.mp4">
+                </video>
+                <video class="audio_to_vid">
+                    <source src="./poesia.mp4">
+                </video>
+                <div class="icon_play">
+                    <i class="ri-play-circle-line"></i>
+                </div>
+            </div>
+            <h1 class="hola">IN YOUR EYES I CAN SEE <BR/> MY UNIVERSE ♥</h1>
+        </div>
+
+    </section>
+    
+    <script>
+      
+        let contadorIndex = 0;
+        let nameVid = ['./parke.mp4','./parke2.mp4','./parke3.mp4','./parke4.mp4']
+        let nameImg = ['usImg.jpg','poster1.jpg','parkeImg.jpg','usImg3.jpg']
+
+
+
+        let audioPoema = document.querySelector('.audio_to_vid');
+        let iconPlay = document.querySelector('.icon_play');
+        let icon = document.querySelector('.icon_play i')
+        let vid = document.querySelector('.video_parke');
+        let img = document.querySelectorAll('img')
+        const playToVid = () =>{
+            if(vid.paused){
+                vid.play()
+                audioPoema.play()
+                audioPoema.currentTime = 2;
+                icon.className ="ri-pause-circle-line" ;
+                vid.muted = true;
+            }else{
+                vid.pause()
+                audioPoema.pause()
+                icon.className = 'ri-play-circle-line'
+           }
+        }
+
+    
+
+        const changeIcon = () =>{
+            contadorIndex++;
+            if(contadorIndex <= 3){
+                img.forEach(element =>{
+                    element.setAttribute('src',nameImg[contadorIndex])
+                })
+            vid.setAttribute('src',nameVid[contadorIndex])
+            }else{
+                contadorIndex = 0
+                img.forEach(element =>{
+                    element.setAttribute('src',nameImg[contadorIndex])
+                })
+                vid.setAttribute('src',nameVid[contadorIndex])
+  
+            }
+            icon.className = 'ri-play-circle-line'
+            if(vid.paused){
+                vid.play()
+            }
+        }
+        const stopAll = () =>{
+            vid.pause()
+        }
+        audioPoema.addEventListener('ended',stopAll)
+        vid.addEventListener('ended',changeIcon)
+        iconPlay.addEventListener('click',playToVid)
+      
+         const showPage = () =>{
+            document.querySelector('.load').classList.add('hidden')
+         }
+       document.addEventListener('DOMContentLoaded',showPage)
+    </script>
+</body>
+</html>
